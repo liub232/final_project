@@ -9,16 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ZStack{
+            NavigationStack {
+                VStack{
+                    Text("Pick a Country")
+                        .font(.largeTitle)
+                        .padding()
+                    Spacer()
+                    HStack{
+                        NavigationLink(destination: topicsNE()) {
+                            Text("📍NE")
+                        }
+                        NavigationLink(destination: topicsSE()) {
+                            Text("📍SE")
+                        }
+                        NavigationLink(destination: topicsSW()) {
+                            Text("📍SW")
+                        }
+                    }//closes HStack
+                    Spacer()
+                    NavigationLink(destination: creators()) {
+                        Text("Meet the Creators")
+                    }//closes NavLink
+                }//closes VStack
+            }//closes NavStack
+        }//closes ZStack
+    }//closes body
+    }//closes struct
+    
+    #Preview {
+        ContentView()
     }
-}
 
-#Preview {
-    ContentView()
-}
